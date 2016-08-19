@@ -36,12 +36,5 @@ LineIndexedModel MeshCreator::sqare_grid(unsigned int x_ticks, unsigned int y_ti
 	model.indices.push_back(x_ticks + 1);
 	model.indices.push_back(2 * x_ticks + 1);
 
-	//for (unsigned int i = 0; i < model.positions.size(); i++)
-	for (unsigned int i = 0; i < model.indices.size(); i+=2)
-	{
-		//std::cout << model.positions[i].x << " " << model.positions[i].y << std::endl;
-		std::cout << model.indices[i] << " " << model.indices[i + 1] << std::endl;
-	}
-
 	return model;
 }

@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 	const Uint8* state = SDL_GetKeyboardState(NULL);
 	clock_t begin = clock();
 
-	LineMesh grid_mesh(MeshCreator::sqare_grid(4, 4, 0.5f, 0.5f));
+	LineMesh grid_mesh(MeshCreator::sqare_grid(50, 40, 0.75f, 0.75f));
 
 
 	// This will identify our vertex buffer
