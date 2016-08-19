@@ -36,6 +36,15 @@ void LineMesh::drawLines() const
 	glBindVertexArray(0);
 }
 
+void LineMesh::drawPoints() const
+{
+	glPointSize(5);
+	glBindVertexArray(_vertexArrayObject);
+	glDrawElements(GL_POINTS, _numIndices, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+	glPointSize(1);
+}
+
 LineMesh::~LineMesh()
 {
 	glDeleteBuffers(NUM_BUFFERS, _vertexArrayBuffers);

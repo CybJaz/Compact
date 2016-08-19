@@ -33,10 +33,10 @@
     <ClCompile Include="..\common\shader.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="..\common\camera.cpp">
+    <ClCompile Include="..\common\camera_2d.cpp">
       <Filter>common</Filter>
     </ClCompile>
-    <ClCompile Include="..\common\transform.cpp">
+    <ClCompile Include="..\common\transform_2d.cpp">
       <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
@@ -53,13 +53,16 @@
     <ClInclude Include="..\common\shader.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\camera.h">
-      <Filter>common</Filter>
-    </ClInclude>
     <ClInclude Include="..\common\glm_printer.h">
       <Filter>common</Filter>
     </ClInclude>
-    <ClInclude Include="..\common\transform.h">
+    <ClInclude Include="..\common\camera_2d.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\transform_2d.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\particle.h">
       <Filter>common</Filter>
     </ClInclude>
   </ItemGroup>

@@ -70,22 +70,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\common\camera.cpp" />
+    <ClCompile Include="..\common\camera_2d.cpp" />
     <ClCompile Include="..\common\display.cpp" />
     <ClCompile Include="..\common\mesh.cpp" />
     <ClCompile Include="..\common\mesh_creator.cpp" />
     <ClCompile Include="..\common\shader.cpp" />
-    <ClCompile Include="..\common\transform.cpp" />
+    <ClCompile Include="..\common\transform_2d.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\common\camera.h" />
+    <ClInclude Include="..\common\camera_2d.h" />
     <ClInclude Include="..\common\display.h" />
     <ClInclude Include="..\common\glm_printer.h" />
     <ClInclude Include="..\common\mesh.h" />
     <ClInclude Include="..\common\mesh_creator.h" />
+    <ClInclude Include="..\common\particle.h" />
     <ClInclude Include="..\common\shader.h" />
-    <ClInclude Include="..\common\transform.h" />
+    <ClInclude Include="..\common\transform_2d.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

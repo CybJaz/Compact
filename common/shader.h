@@ -5,8 +5,8 @@
 #include <GL\glew.h>
 #include <glm\glm.hpp>
 
-class Camera;
-//struct Transform;
+class Camera2D;
+struct Transform2D;
 
 const std::string VERTEX_SHADER_EXTENSION = ".vsh";
 const std::string GEOMETRY_SHADER_EXTENSION = ".gsh";
@@ -38,7 +38,23 @@ public:
 	BasicShader(const std::string& fileName);
 	virtual ~BasicShader();
 
-	void update(const Transform& transform, const Camera& camera);
+	void update(const Transform2D& transform, const Camera2D& camera, const glm::vec3& color);
+protected:
+	virtual void init(const std::string& fileName);
+private:
+	static const unsigned int _NUM_SHADERS = 2;
+	static const unsigned int _NUM_UNIFORMS = 3;
+	GLuint _shaders[_NUM_SHADERS];
+	GLuint _uniforms[_NUM_UNIFORMS];
+};
+
+class DeformationShader : public Shader
+{
+public:
+	DeformationShader(const std::string& fileName);
+	virtual ~DeformationShader();
+
+	void update(const Transform2D& transform, const Camera2D& camera, const glm::vec3& color);
 protected:
 	virtual void init(const std::string& fileName);
 private:

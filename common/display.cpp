@@ -49,12 +49,12 @@ Display::Display(unsigned int width, unsigned int height, const std::string& tit
 	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
-	float att[3] = { 1.0f, 1.0f, 1.0f };
-	glEnable(GL_POINT_SPRITE);
-	glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
-	glPointParameterf(GL_POINT_SIZE_MIN, 1.0f);
-	glPointParameterf(GL_POINT_SIZE_MAX, 16.0f);
-	glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, att);
+	//float att[3] = { 1.0f, 1.0f, 1.0f };
+	//glEnable(GL_POINT_SPRITE);
+	//glEnable(GL_VERTEX_PROGRAM_POINT_SIZE);
+	//glPointParameterf(GL_POINT_SIZE_MIN, 1.0f);
+	//glPointParameterf(GL_POINT_SIZE_MAX, 16.0f);
+	//glPointParameterfv(GL_POINT_DISTANCE_ATTENUATION, att);
 	//glEnable(GL_POINT_SPRITE);
 
 }

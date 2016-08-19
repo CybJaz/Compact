@@ -20,6 +20,7 @@ class LineMesh
 public:
 	LineMesh(const LineIndexedModel& indexedModel);
 	void drawLines() const;
+	void drawPoints() const;
 	~LineMesh();
 
 private:
