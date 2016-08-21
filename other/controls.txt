@@ -1,0 +1,8 @@
+Sterowanie:
+	strzałki - ruch Focusa
+
+	q/a - zwiększ/zmniejsz współczynnik zniekształcenia
+	z - ustaw domyślny współczynnik zniekształcenia
+
+	r - rozmieść kulki losowo
+	h - rozmieść kulki horyzontalnie

@@ -8,10 +8,15 @@ class MeshCreator
 public:
 	static LineIndexedModel sqare_grid(unsigned int x_ticks, unsigned int y_ticks, 
 		float x_scale = 1.0f, float y_scale = 1.0f);
+
+	static LineIndexedModel circle_full_triangles(unsigned int sides, float scale = 1.0f);
+
 private:
 	void operator=(const MeshCreator& mesh) = delete;
 	MeshCreator(const MeshCreator& mesh) = delete;
 
 };
+
+
 
 #endif

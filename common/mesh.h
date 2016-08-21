@@ -21,6 +21,10 @@ public:
 	LineMesh(const LineIndexedModel& indexedModel);
 	void drawLines() const;
 	void drawPoints() const;
+	
+	template <GLenum DRAWING_MODE>
+	void draw() const;
+
 	~LineMesh();
 
 private:
@@ -34,5 +38,13 @@ private:
 	GLuint _vertexArrayBuffers[NUM_BUFFERS];
 	unsigned int _numIndices;
 };
+
+template <GLenum DRAWING_MODE>
+void LineMesh::draw() const
+{
+	glBindVertexArray(_vertexArrayObject);
+	glDrawElements(DRAWING_MODE, _numIndices, GL_UNSIGNED_INT, 0);
+	glBindVertexArray(0);
+}
 
 #endif

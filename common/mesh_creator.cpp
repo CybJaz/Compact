@@ -1,5 +1,8 @@
 #include "mesh_creator.h"
 
+#include <glm/glm.hpp>
+#include <glm/gtc/constants.hpp>
+
 LineIndexedModel MeshCreator::sqare_grid(unsigned int x_ticks, unsigned int y_ticks,
 	float x_scale, float y_scale)
 {
@@ -10,37 +13,6 @@ LineIndexedModel MeshCreator::sqare_grid(unsigned int x_ticks, unsigned int y_ti
 
 	if (y_ticks < 2)
 		y_ticks = 2;
-
-	// Vertical lines.
-	//for (unsigned i = 0; i <= x_ticks; i++)
-	//	model.positions.push_back(glm::vec2((i * 2.0f / (float) x_ticks - 1.0f) * x_scale, y_scale));
-
-	//for (unsigned i = 0; i <= x_ticks; i++)
-	//	model.positions.push_back(glm::vec2((i* 2.0f / (float) x_ticks - 1.0f) * x_scale, -y_scale));
-
-	//for (unsigned i = 0; i <= x_ticks; i++)
-	//{
-	//	model.indices.push_back(i);
-	//	model.indices.push_back(i + x_ticks + 1);
-	//}
-	//
-	//// Horizontal lines.
-	//for (unsigned i = 1; i < y_ticks; i++)
-	//	model.positions.push_back(glm::vec2(-x_scale, (i * 2.0f / (float)y_ticks - 1.0f) * y_scale));
-
-	//for (unsigned i = 1; i < y_ticks; i++)
-	//	model.positions.push_back(glm::vec2(x_scale, (i * 2.0f / (float)y_ticks - 1.0f) * y_scale));
-
-	//for (unsigned i = 1; i < y_ticks; i++)
-	//{
-	//	model.indices.push_back(i + 2 * x_ticks + 1);
-	//	model.indices.push_back(i + 2 * x_ticks + y_ticks);
-	//}
-
-	//model.indices.push_back(0);
-	//model.indices.push_back(x_ticks);
-	//model.indices.push_back(x_ticks + 1);
-	//model.indices.push_back(2 * x_ticks + 1);
 
 	// First horizontal line.
 	model.positions.push_back(glm::vec2(-x_scale, y_scale));
@@ -83,6 +55,33 @@ LineIndexedModel MeshCreator::sqare_grid(unsigned int x_ticks, unsigned int y_ti
 	//{
 	//	std::cout << model.indices[i] << " " << model.indices[i + 1] << std::endl;
 	//}
+
+	return model;
+}
+
+LineIndexedModel MeshCreator::circle_full_triangles(unsigned int sides, float scale)
+{
+	LineIndexedModel model;
+
+	model.positions.push_back(glm::vec2(0.0f,0.0f));
+	model.positions.push_back(glm::vec2(1.0f, 0.0f) * scale);
+
+	unsigned int triangle = 0;
+	float angle = glm::two_pi<float>() / (float) sides;
+
+	unsigned int i = 1;
+	for (; i < sides; i++)
+	{
+		model.positions.push_back(glm::vec2(glm::cos((float)i * angle), 
+								glm::sin((float)i * angle)) * scale);
+		model.indices.push_back(0);
+		model.indices.push_back(i);
+		model.indices.push_back(i+1);
+	}
+
+	model.indices.push_back(0);
+	model.indices.push_back(i);
+	model.indices.push_back(1);
 
 	return model;
 }

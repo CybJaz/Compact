@@ -109,7 +109,7 @@ void BasicShader::update(const Transform2D& transform, const Camera2D& camera, c
 
 	glUniformMatrix4fv(_uniforms[0], 1, GL_FALSE, &MVP[0][0]);
 	glUniformMatrix4fv(_uniforms[1], 1, GL_FALSE, &Model[0][0]);
-	glUniform3f(_uniforms[2], 1, GL_FALSE, color[0]);
+	glUniform3f(_uniforms[2], color[0], color[1], color[2]);
 }
 
 void BasicShader::init(const std::string& fileName)
@@ -149,16 +149,18 @@ DeformationShader::~DeformationShader()
 	}
 }
 
-void DeformationShader::update(const Transform2D& transform, const Camera2D& camera, const glm::vec3& color)
+void DeformationShader::update(const Transform2D& transform, const Camera2D& camera,
+	const glm::vec3& color, const float& deformation_coefficient)
 {
 	glm::mat3 ModelView = transform.get_model_view3(camera);
-	glm::mat4 Projection = transform.getMVP(camera);
+	glm::mat4 Projection = camera.get_projection();
 	//glm::mat4 MVP = transform.getMVP(camera);
 	//glm::mat4 Normal = transform.getModel();
 
 	glUniformMatrix3fv(_uniforms[0], 1, GL_FALSE, &ModelView[0][0]);
 	glUniformMatrix4fv(_uniforms[1], 1, GL_FALSE, &Projection[0][0]);
 	glUniform3f(_uniforms[2], color[0], color[1], color[2]);
+	glUniform1f(_uniforms[3], deformation_coefficient);
 }
 
 void DeformationShader::init(const std::string& fileName)
@@ -181,4 +183,5 @@ void DeformationShader::init(const std::string& fileName)
 	_uniforms[0] = glGetUniformLocation(_program, "MV");
 	_uniforms[1] = glGetUniformLocation(_program, "Projection");
 	_uniforms[2] = glGetUniformLocation(_program, "Color");
+	_uniforms[3] = glGetUniformLocation(_program, "Coefficient");
 }

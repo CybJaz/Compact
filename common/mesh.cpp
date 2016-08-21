@@ -38,11 +38,9 @@ void LineMesh::drawLines() const
 
 void LineMesh::drawPoints() const
 {
-	glPointSize(5);
 	glBindVertexArray(_vertexArrayObject);
 	glDrawElements(GL_POINTS, _numIndices, GL_UNSIGNED_INT, 0);
 	glBindVertexArray(0);
-	glPointSize(1);
 }
 
 LineMesh::~LineMesh()

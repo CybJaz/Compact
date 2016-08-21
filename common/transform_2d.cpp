@@ -60,7 +60,7 @@ glm::mat4 Transform2D::getModel() const
 
 glm::mat4 Transform2D::getMVP(const Camera2D& camera) const
 {
-	glm::mat4 VP = camera.getViewProjection();
+	glm::mat4 VP = camera.get_view_projection();
 	glm::mat4 M = getModel();
 
 	return VP * M;//camera.GetViewProjection() * GetModel();

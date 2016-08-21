@@ -16,7 +16,7 @@ public:
 	*/
 	Camera2D(const glm::vec2& position, float aspect, float speed = 0.1f,  float height = 2.0f);
 
-	inline glm::mat4 getProjection() const
+	inline glm::mat4 get_projection() const
 	{
 		return _projection;
 	}
@@ -31,14 +31,22 @@ public:
 		return _projection3;
 	}
 
-	inline glm::mat4 getViewProjection() const
+	inline glm::mat4 get_view_projection() const
 	{
 		//glm::vec3 pos = _spinor.rotate(_position);
 		//glm::vec3 forw = _spinor.rotate(_forward);
 		//glm::vec3 up = _spinor.rotate(_up);
 		//glm::mat4 lookat = glm::lookAt(_position, _position + forw, up);
 
-		return _projection;
+		return _projection * get_view();
+	}
+
+	inline glm::mat4 get_view() const
+	{
+		glm::mat4 view = glm::mat4();
+		view[3][0] = -_position[0];
+		view[3][1] = -_position[1];
+		return view;
 	}
 
 	inline glm::mat3 get_view3() const
@@ -59,6 +67,7 @@ public:
 	//}
 
 	inline void set_position(glm::vec2 pos) { _position = pos; }
+	inline glm::vec2 get_position() const { return _position; }
 
 	inline void set_speed(float speed) { _speed = speed; }
 

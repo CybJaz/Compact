@@ -11,22 +11,24 @@ out float r;
 
 uniform mat3 MV;
 uniform mat4 Projection;
+uniform float Coefficient;
 
 void main()
 {
 	vec2 position_c = vec2(MV * vec3(position_m, 1.0f));
 
 	r = length(position_c);
-	float r2 = r * r;
+	float r2 = pow(r, Coefficient);
+	// float r2 = r * r;
 
-	float narrowed = r2 / (r2 + 1.0f);
+	// float narrowed = r2 / (r2 + 1.0f);
 
-	// float narrowed;
+	float narrowed;
 
-	// if (r > 1.f)
-	// 	narrowed = r2 / (r2 + 1.0f);
-	// else
-	// 	narrowed = r / 2.0f;
+	if (r > 1.f)
+		narrowed = r2 / (r2 + 1.0f);
+	else
+		narrowed = r / 2.0f;
 
 	nr = narrowed / r;
 

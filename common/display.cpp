@@ -37,7 +37,7 @@ Display::Display(unsigned int width, unsigned int height, const std::string& tit
 		std::cerr << "Glew failed to initialize!" << std::endl;
 	}
 
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);
 	glEnable(GL_MULTISAMPLE);
 	//glDisable(GL_CULL_FACE);
 	//glEnable(GL_CULL_FACE);
